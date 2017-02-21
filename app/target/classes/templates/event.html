@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	
+	    <meta charset="utf-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	    <title>Kalendar</title>
+	    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css" 
+		    type="text/css" rel="stylesheet" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+		    type="text/css" rel="stylesheet" />
+	    
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" type="text/css" href="../resources/css/style.css" />
+		<title th:text="#{home.title}">CateringService</title>
+	</head>
+<body>
+	<div class="all">
+		<header>
+		</header>
+	
+	</div>
+<nav th:include="navigation :: navigation">
+		<div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="welcome">Mampf</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		  
+		      <li class="dropdown">
+		        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Events
+		        <span class="caret"></span></a>
+		        <ul class="dropdown-menu">
+		          <li><a href="kalender">Kalender</a></li>
+		          <li><a href="event">Event erstellen</a></li>
+		        </ul>
+		      </li>
+		    </ul>
+		  </div>
+
+			<ul class="nav navbar-nav">
+				<li><a href="login.html">Login</a></li>
+				<li><a  href="index.html">Index</a></li>
+				<li><a class="dropdown-toggle" data-toggle="dropdown" href="kalender.html">Kalender</a></li>
+				
+			          <li><a href="kalender">Kalender</a></li>
+			          <li><a href="event">Event erstellen</a></li>
+			        
+				<li class="loginlogout"><a href="@{/login}">Login</a></li>
+				<li class="loginlogout"><a href="@{/logout}">Logout</a></li>
+			</ul>
+		</nav>
+
+    <form data-toggle="validator" role="form">
+<div class="container-fluid">
+
+  <div class="row content">
+		<div class="col-sm-2 sidenav">
+		  <h4>Event</h4>
+		  <ul class="nav nav-pills nav-stacked">
+			<li class="active"><a href="#section1">Partyservice</a></li>
+			<li class="active" ><a href="#section2">Rent a Cook</a></li>
+			<li class="active"><a href="#section3">Breakfast</a></li>
+			<li class="active"><a href="">Eventcatering</a></li>
+		  </ul>
+		</div>
+
+		
+		<div class="col-sm-4">
+			
+		
+			<div class="input-group">
+			<label>Kunden ID</label>
+				<input type="text" name = "id" size = "35" placeholder="Kunde ID" required="true"/>
+				<label>Adresse</label>
+				<input type="text" name= "adresse" size = "35" placeholder="Adresse der Veranstaltung" required="true"/>
+				<label>Name der Veranstaltung</label>
+				<input type="text" name= "name" size = "35" placeholder="Name der Veanstaltung" required="true"/>        
+			</div>
+
+			 <h4>Event Beschreibung</h4>
+			 
+				<div class="form-group">
+					<textarea class="form-control" rows="3" placeholder="Speisewünsche" required="true">
+					</textarea>
+					
+				</div>
+					<button type="submit" class="btn btn-success">Termin Eintragen</button>
+			  
+		</div>
+		<div class="col-sm-3">
+			
+					<label for="dt">Datum und Zeit </label>
+						<input name="date" id="date" class="form-control" type="date" placeholder="JJJJ-MM-TT"/>		 			<label for="starttime">Anfang:</label>
+       			<select name="starttime">
+       			<option value="0">00:00</option>
+       			<option value="1">01:00</option>
+       			<option value="2">02:00</option>
+       			<option value="3">03:00</option>
+       			<option value="4">04:00</option>
+       			<option value="5">05:00</option>
+       			<option value="6">06:00</option>
+       			<option value="7">07:00</option>
+       			<option value="8">08:00</option>
+       			<option value="9">09:00</option>
+       			<option value="10">10:00</option>
+       			<option value="11">11:00</option>
+       			<option value="12">12:00</option>
+       			<option value="13">13:00</option>
+       			<option value="14">14:00</option>
+       			<option value="15">15:00</option>
+       			<option value="16">16:00</option>
+       			<option value="17">17:00</option>
+       			<option value="18">18:00</option>
+       			<option value="19">19:00</option>
+       			<option value="20">20:00</option>
+       			<option value="21">21:00</option>
+       			<option value="22">22:00</option>
+       			<option value="23">23:00</option>
+       		</select>
+       		<label for="endtime">Ende:</label>
+       		<select name="endtime">
+       			<option value="0">00:00</option>
+       			<option value="1">01:00</option>
+       			<option value="2">02:00</option>
+       			<option value="3">03:00</option>
+       			<option value="4">04:00</option>
+       			<option value="5">05:00</option>
+       			<option value="6">06:00</option>
+       			<option value="7">07:00</option>
+       			<option value="8">08:00</option>
+       			<option value="9">09:00</option>
+       			<option value="10">10:00</option>
+       			<option value="11">11:00</option>
+       			<option value="12">12:00</option>
+       			<option value="13">13:00</option>
+       			<option value="14">14:00</option>
+       			<option value="15">15:00</option>
+       			<option value="16">16:00</option>
+       			<option value="17">17:00</option>
+       			<option value="18">18:00</option>
+       			<option value="19">19:00</option>
+       			<option value="20">20:00</option>
+       			<option value="21">21:00</option>
+       			<option value="22">22:00</option>
+       			<option value="23">23:00</option>
+       			</select>
+		 			<button type="submit" class="btn btn-success">Datum überprüfen</button>
+		
+		</div>
+	</div>
+</div>
+</form>
+
+</body>
+</html>

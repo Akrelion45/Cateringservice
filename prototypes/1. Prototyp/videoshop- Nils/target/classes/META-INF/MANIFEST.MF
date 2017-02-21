@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: videoshop
+Implementation-Version: 1.1.0.BUILD-SNAPSHOT
+Built-By: Nils
+Implementation-Vendor-Id: de.tudresden.inf.st
+Build-Jdk: 1.8.0_77
+Implementation-URL: http://projects.spring.io/spring-boot/st-lab-paren
+ t/videoshop/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

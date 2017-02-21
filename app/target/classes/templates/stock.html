@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="../resources/css/style.css" />
+	<title th:text="#{stock.title}">Bestand</title>
+</head>
+<body>
+	<div class="all">
+		<header>
+			<h1 th:text="#{stock.title}">Bestand</h1>
+		</header>
+		<nav th:include="navigation :: navigation" ></nav>
+		
+		<div class="content">
+			<table>
+				<caption th:text="#{stock.title}">Bestand</caption>
+				<thead>
+					<tr>
+						<th th:text="#{stock.itemtitel}">Titel</th>
+						<th th:text="#{stock.count}">Anzahl</th>
+						<th th:text="#{stock.1}"></th>
+					</tr>
+				</thead>
+				<tbody th:remove="all-but-first">
+						<tr th:each="item:${stock}">
+							<td th:text="${item.product.name}">Last Action Hero</td>
+							<td th:text="${item.quantity}">9000</td>
+						
+							<td>
+							<form method="post" action="/add">
+							<input id="id" type="hidden" value="0" name="id" th:value="${item.product.id}"/>
+							<label for="number">Anzahl</label>
+							<input id="number" type="number" name="number" min="-10" max="10" step="1" value="1" /><br />
+							<input	type="submit" value="Anzahl hinzufügen" />
+							</form>
+							</td>
+						</tr>
+							
+								
+					
+				</tbody>
+			</table>
+
+			
+			<div class="additem" >
+			
+				<form th:action="@{/addproduct}" method="post">
+	         	 	 	 <label th:text="#{item.product.name}" for="name">Item Name</label>
+	           			 <input type="text" id="name" name="name"/> <br />
+	           			  <label th:text="#{item.quantity}" for="quantity">Anzahl</label>
+	           			 <input type="text" id="quantity" name="quantity"/> <br />
+					   	<input	type="submit" value="Produkt ins Lager aufnehmen" />
+						</form>
+					
+				</div>	
+				
+				<div class="removeitem" >
+			
+				<form th:action="@{/removeproduct}" method="post">
+	         	 	 	 <label th:text="#{item.product.name}" for="name">Item Name</label>
+	           			 <input type="text" id="name" name="name"/> <br />
+					   	<input	type="submit" value="Produkt löschen" />
+						</form>
+					
+				</div>										
+		</div>
+	</div>
+</body>
+</html>

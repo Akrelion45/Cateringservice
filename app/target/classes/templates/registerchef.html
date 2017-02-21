@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" type="text/css" href="../resources/css/style.css" />
+		<title th:text="#{register.title}">Registrierung</title>
+	</head>
+<body>
+	<div class="all">
+		<header>
+			<h1 th:text="#{register.title}">Registrierung</h1>
+		</header>
+		<nav th:include="navigation :: navigation"></nav>
+
+		<div class="content">
+			<div class="salespoint">
+
+				<form method="post" action="/registerNew" th:object="${registrationForm}">
+					
+
+					<fieldset>
+						<legend th:text="#{register.title}">Benutzerkonto</legend>
+						
+						<div th:if="${#fields.hasErrors('*')}">
+							<p>Einige Angaben sind nicht korrekt.</p>
+						</div>
+						
+						<label th:text="#{register.name}" for="name">Name</label>
+						<input id="name" th:field="*{name}" th:errorclass="fieldError" type="text" name="name" />
+						<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Der Name darf nicht leer sein!</p>
+						<br />
+						
+						<label th:text="#{register.password}" for="password">Passwort</label>
+						<input id="password" th:field="*{password}" th:errorclass="fieldError" type="text" name="password" /><br /> 
+						<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Das Passwort darf nicht leer sein!</p>
+						
+						<br />
+						<label th:text="#{register.address}" for="address">Straße</label>
+						<input id="address" th:field="*{address}" th:errorclass="fieldError" type="text" name="address" />
+						<p th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Die Adresse darf nicht leer sein!</p>
+					
+						<br />
+						
+						<label th:text="#{register.plz}" for="plz">PLZ</label>
+						<input id="plz" th:field="*{plz}" th:errorclass="fieldError" type="text" name="plz" />
+						<p th:if="${#fields.hasErrors('plz')}" th:errors="*{plz}">Die PLZ darf nicht leer sein!</p>
+					
+						<br />
+						
+						<label th:text="#{register.ort}" for="Ort">Ort</label>
+						<input id="ort" th:field="*{ort}" th:errorclass="fieldError" type="text" name="ort" />
+						<p th:if="${#fields.hasErrors('ort')}" th:errors="*{ort}">Die ort darf nicht leer sein!</p>
+					
+						<br />
+						
+						
+						<label th:text="#{register.event}" for="event">Eventtyp wenn vorhanden</label>
+						<input id="event" th:field="*{event}" th:errorclass="fieldError" type="radio" name="event" value="Partyservice"/> Partyservice
+						<input id="event" th:field="*{event}" th:errorclass="fieldError" type="radio" name="event" value="Rent-a-Cook" /> Rent-a-Cook
+						<input id="event" th:field="*{event}" th:errorclass="fieldError" type="radio" name="event" value="Eventcatering" /> Eventcatering
+						<input id="event" th:field="*{event}" th:errorclass="fieldError" type="radio" name="event" value="Mobile Breakfast" /> Mobile Breakfast
+						<p th:if="${#fields.hasErrors('event')}" th:errors="*{event}">Dieser Parameter ist optional.</p>
+					
+						<br />
+						
+						<label th:text="#{register.kontakt}" for="kontakt">Kontaktadresse</label>
+						<input id="kontakt" th:field="*{kontakt}" th:errorclass="fieldError" type="text" name="kontakt" />
+						<p th:if="${#fields.hasErrors('kontakt')}" th:errors="*{kontakt}">Dieser Parameter ist optional.</p>
+					
+						<br />
+						
+						<label th:text="#{register.handy}" for="handy">Handynummer</label>
+						<input id="handy" th:field="*{handy}" th:errorclass="fieldError" type="text" name="handy" />
+						<p th:if="${#fields.hasErrors('handy')}" th:errors="*{handy}">Dieser Parameter ist optional.</p>
+					
+						<br />
+					
+						
+						<label th:text="#{register.mitarbeitertyp}" for="mitarbeitertyp">Mitarbeiter Typ</label>
+						<input id="mitarbeitertyp" th:field="*{mitarbeitertyp}" th:errorclass="fieldError" type="radio" name="mitarbeitertyp" value="CHEF" /> Chef
+						<input id="mitarbeitertyp" th:field="*{mitarbeitertyp}" th:errorclass="fieldError" type="radio" name="mitarbeitertyp" value="SYSADMIN" /> Systemadministator
+						<input id="mitarbeitertyp" th:field="*{mitarbeitertyp}" th:errorclass="fieldError" type="radio" name="mitarbeitertyp" value="EMPLOYEE" /> Mitarbeiter
+						<input id="mitarbeitertyp" th:field="*{mitarbeitertyp}" th:errorclass="fieldError" type="radio" name="mitarbeitertyp" value="CUSTOMER" /> Kunde
+						<p th:if="${#fields.hasErrors('mitarbeitertyp')}" th:errors="*{mitarbeitertyp}">Dieses Feld darf nicht leer sein!</p>
+					
+						<br />
+						<input type="submit" th:value="#{register.submit}" value="Registrieren" />
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
